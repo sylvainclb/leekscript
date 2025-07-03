@@ -468,7 +468,7 @@ public class IntegerIntervalLeekValue extends IntervalLeekValue {
 
 	@Overrice
 	public Object intervalIter(AI ai, FunctionLeekValue function) throws LeekRunException {
-	ai.ops(1 + size());
+		ai.ops(1 + size());
 		for (long i = from; i <= to; ++i) {
 		     function.run(ai, null, i, i, this);
 		}

@@ -347,4 +347,16 @@ public class RealIntervalLeekValue extends IntervalLeekValue {
 	public double getTo() {
 		return to;
 	}
+
+	@Override
+	public Object intervalIter(AI ai, FunctionLeekValue function) throws LeekRunException {
+		ai.ops(1 + intervalSize());
+		IntervalIterator iterator = iterator();
+		while (iterator.hasNext()) {
+			var value = iterator.getValue();
+			function.run(ai, null, value, value, this);	
+			iterator.next();    
+		}
+		return null;
+	}
 }

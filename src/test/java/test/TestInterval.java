@@ -278,5 +278,11 @@ public class TestInterval extends TestCommon {
 		code_v2_("var i = [1.0..5.0[ var x = 0.0 for (var y in i) x += y return x").equals("10.0");
 		code_v2_("var i = ]1.0..5.0] var x = 0.0 for (var y in i) x += y return x").equals("14.0");
 		code_v2_("var i = ]1.0..5.0[ var x = 0.0 for (var y in i) x += y return x").equals("9.0");
+
+		section("Interval.iter()");
+		code("var t = []; intervalIter([1..4], function(v) { push(t,v); }); return t;").equals("[1, 2, 3, 4]");
+		code_v1("var t = []; intervalIter([1..4], function(@v) { push(t,v); }); return t;").equals("[1, 2, 3, 4]");
+		code_v1_3("var t = []; intervalIter([1..4], function(k, v) { push(t,v); }); return t;").equals("[1, 2, 3, 4]");
+		code_v4_("var t = []; intervalIter([1..4], function(k, v) { push(t,v); }); return t;").equals("[1, 2, 3, 4]");
 	}
 }

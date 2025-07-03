@@ -44,4 +44,5 @@ public abstract class IntervalLeekValue implements LeekValue {
 
 	public abstract ArrayLeekValue range(AI ai, Object start, Object object, Object stride) throws LeekRunException;
 
+	public abstract Object intervalIter(AI ai, FunctionLeekValue function) throws LeekRunException;
 }

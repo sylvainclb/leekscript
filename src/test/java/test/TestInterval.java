@@ -281,8 +281,20 @@ public class TestInterval extends TestCommon {
 
 		section("Interval.iter()");
 		code("var t = []; intervalIter([1..4], function(v) { push(t,v); }); return t;").equals("[1, 2, 3, 4]");
+		code("var t = []; intervalIter(]1..4], function(v) { push(t,v); }); return t;").equals("[2, 3, 4]");
+		code("var t = []; intervalIter([1..4[, function(v) { push(t,v); }); return t;").equals("[1, 2, 3]");
+		code("var t = []; intervalIter(]1..4[, function(v) { push(t,v); }); return t;").equals("[2, 3]");
 		code_v1("var t = []; intervalIter([1..4], function(@v) { push(t,v); }); return t;").equals("[1, 2, 3, 4]");
+		code_v1("var t = []; intervalIter(]1..4], function(@v) { push(t,v); }); return t;").equals("[2, 3, 4]");
+		code_v1("var t = []; intervalIter([1..4[, function(@v) { push(t,v); }); return t;").equals("[1, 2, 3]");
+		code_v1("var t = []; intervalIter(]1..4[, function(@v) { push(t,v); }); return t;").equals("[2, 3]");
 		code_v1_3("var t = []; intervalIter([1..4], function(k, v) { push(t,v); }); return t;").equals("[1, 2, 3, 4]");
+		code_v1_3("var t = []; intervalIter(]1..4], function(k, v) { push(t,v); }); return t;").equals("[2, 3, 4]");
+		code_v1_3("var t = []; intervalIter([1..4[, function(k, v) { push(t,v); }); return t;").equals("[1, 2, 3]");
+		code_v1_3("var t = []; intervalIter(]1..4[, function(k, v) { push(t,v); }); return t;").equals("[2, 3]");
 		code_v4_("var t = []; intervalIter([1..4], function(k, v) { push(t,v); }); return t;").equals("[1, 2, 3, 4]");
+		code_v4_("var t = []; intervalIter(]1..4], function(k, v) { push(t,v); }); return t;").equals("[2, 3, 4]");
+		code_v4_("var t = []; intervalIter([1..4[, function(k, v) { push(t,v); }); return t;").equals("[1, 2, 3]");
+		code_v4_("var t = []; intervalIter(]1..4[, function(k, v) { push(t,v); }); return t;").equals("[2, 3]");
 	}
 }

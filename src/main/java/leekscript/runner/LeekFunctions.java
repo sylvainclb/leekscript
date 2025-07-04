@@ -346,6 +346,10 @@ public class LeekFunctions {
 			new CallableVersion(Type.SET_INT, new Type[] { Type.INTEGER_INTERVAL, Type.INT }),
 			new CallableVersion(Type.SET_INT, new Type[] { Type.INTEGER_INTERVAL}),
 		});
+		method("intervalIter", "Interval", new CallableVersion[] {
+			new CallableVersion(Type.VOID, new Type[] { Type.REAL_INTERVAL }),
+			new CallableVersion(Type.VOID, new Type[] { Type.INTEGER_INTERVAL}),
+		});
 
 		/**
 		 * JSON functions
